@@ -54,7 +54,6 @@ const searchBtn = document.getElementById('search-button');
 searchBtn.addEventListener('click', () => {
     const inputMeal = document.getElementById('meal-name').value;
     getMeals(inputMeal);
-    // displayMealsDetails(inputMeal);
 });
 
 
