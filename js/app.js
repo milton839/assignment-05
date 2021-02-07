@@ -11,7 +11,7 @@ const getMeals = (meal) => {
                    <img class="meal-image" src="${element.strMealThumb}">
 
                     <h2>${ element.strMeal }</h2>
-                    <p>${ element.strArea }</p>
+                    
                     <button onclick="displayMealsDetails('${ element.strMeal }')">Details</button>
                 `;
                 mealDiv.innerHTML = mealInfo;
@@ -26,21 +26,26 @@ const displayMealsDetails = title =>{
     .then(data =>{
         const mealContainer = document.getElementById('meal_item');
         mealContainer.style.display="none";
-        const value = data.meals["0"];
-        const value1 = Object.values(value);
-        // console.log(value1[9])
+        const catchValue = data.meals["0"];
+        const value = Object.values(catchValue);
+        
+        const mealDetailsItem = document.getElementById('meal_details_item');
+        mealDetailsItem.innerHTML = `
+        <img class="meal-details-image" src="${catchValue.strMealThumb}">
+        <h2>${ catchValue.strMeal }</h2>
+        `;
         for (let i = 9; i < 17; i++) {
             const details = value[i];
-            if (value1[i] !== " " ) {
-                const detailsMeal = value1[i];
-                const mealDetailsItem = document.getElementById('meal_details_item');
-                const ul = document.createElement
+            if (value[i] !== " " ) {
+                const detailsMeal = value[i];
+                const li = document.createElement('li');
+                li.innerText = detailsMeal;
+                mealDetailsItem.appendChild(li);
+        
             }
-            
-            // console.log(value1[i])
         }
-        // console.log(value);
-    } );//console.log(data.meals["0"])
+        
+    } );
 }
 const searchBtn = document.getElementById('search-button');
 searchBtn.addEventListener('click', () => {
