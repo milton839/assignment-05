@@ -9,8 +9,15 @@
     padding: 20px;
     width: 350px;
 }
+.meal-details-title{
+    font-size: 30px;
+    color: orange;
+}
 .meal-image{
     width: 320px;
+}
+#meal_details_item{
+    padding-bottom: 30px;
 }
 .meal-details-image{
     width: 400px;
