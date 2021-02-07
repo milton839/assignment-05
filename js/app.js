@@ -17,7 +17,7 @@ const getMeals = (meal) => {
                 `;
                 mealDiv.innerHTML = mealInfo;
                 mealItemDiv.appendChild(mealDiv);  
-            },10);
+            });
         });
 };
 
