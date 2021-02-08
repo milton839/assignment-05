@@ -1,6 +1,6 @@
 //========For letter search========
 const getMeals = (meal) => {
-    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${meal}`)
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`)
         .then((response) => response.json())
         .then((data) => {
             const mealItemDiv = document.getElementById('meal_item');
@@ -18,7 +18,8 @@ const getMeals = (meal) => {
                 mealDiv.innerHTML = mealInfo;
                 mealItemDiv.appendChild(mealDiv);  
             });
-        });
+        })
+        .catch(error=>window.alert('Your searching item is not available there'))
 };
 
 
